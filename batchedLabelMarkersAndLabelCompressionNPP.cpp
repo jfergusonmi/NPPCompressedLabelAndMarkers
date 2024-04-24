@@ -41,38 +41,6 @@
 #include <helper_string.h>
 #include <npp.h>
 
-// Note:  If you want to view these images we HIGHLY recommend using imagej
-//        which is free on the internet and works on most platforms
-//        because it is one of the few image viewing apps that can display 32
-//        bit integer image data.  While it normalizes the data to floating
-//        point values for viewing it still provides a good representation of
-//        the relative brightness of each label value. Note that label
-//        compression output results in smaller differences between label values
-//        making it visually more difficult to detect differences in labeled
-//        regions.  If you have an editor that can display hex values you can
-//        see what the exact values of each label is, every 4 bytes represents 1
-//        32 bit integer label value.
-//
-//        The files read and written by this sample app use RAW image format,
-//        that is, only the image data itself exists in the files with no image
-//        format information.   When viewing RAW files with imagej just enter
-//        the image size and bit depth values that are part of the file name
-//        when requested by imagej.
-//
-//        This sample app works in 2 stages, first it processes all of the
-//        images individually then it processes them all again in 1 batch using
-//        the Batch_Advanced versions of the NPP batch functions which allow
-//        each image to have it's own ROI.  The 2 stages are completely
-//        separable but in this sample the second stage takes advantage of some
-//        of the data that has already been initialized.
-//
-//        Note that there is a small amount of variability in the number of
-//        unique label markers generated from one run to the next by the UF
-//        algorithm.
-//
-//        Performance of ALL NPP image batch functions is limited by the maximum
-//        ROI height in the list of images.
-
 // Batched label compression support is only available on NPP versions > 11.0,
 // comment out if using NPP 11.0
 #define USE_BATCHED_LABEL_COMPRESSION 1
